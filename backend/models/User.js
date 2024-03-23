@@ -1,6 +1,8 @@
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema(
+const mongoose = require('mongoose');
+
+const userSchema = new Schema(
   {
     username: {
       type: String,
@@ -16,17 +18,21 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-
-    photo: {
-      type: String,
+    timestamp: {
+      type: Date,
+      default: Date.now,
     },
+    // photo: {
+    //   type: String,
+    // },
 
-    role: {
-      type: String,
-      default: "user",
-    },
+    // role: {
+    //   type: String,
+    //   default: "user",
+    // },
   },
-  { timestamps: true }
+  // { timestamps: true }
 );
 
-export default mongoose.model("User", userSchema);
+// export default mongoose.model("User", userSchema);
+module.exports = mongoose.model('user','UserSchema')
